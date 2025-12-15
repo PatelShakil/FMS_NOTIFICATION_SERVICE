@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Feedback is Being Reviewed - BoloIndia</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #17a2b8; padding: 40px; text-align: center;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">👀 Feedback Under Review</h1>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                Dear Citizen,
+                            </p>
+                            
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                Thank you for submitting your feedback. We wanted to let you know that your feedback is currently being reviewed by the concerned department.
+                            </p>
+                            
+                            <div style="background-color: #d1ecf1; border-left: 4px solid #17a2b8; padding: 15px; margin: 20px 0;">
+                                <p style="margin: 5px 0; color: #0c5460;"><strong>Feedback Reference:</strong> #{{responseId}}</p>
+                                <p style="margin: 5px 0; color: #0c5460;"><strong>Status:</strong> Under Review</p>
+                                <p style="margin: 5px 0; color: #0c5460;"><strong>Reviewed On:</strong> {{formatDateTime reviewedAt}}</p>
+                            </div>
+                            
+                            <p style="color: #666666; line-height: 1.6;">
+                                We appreciate your patience. You will be notified once your feedback has been resolved or if we need any additional information.
+                            </p>
+                            
+                            <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0;">
+                                <p style="margin: 5px 0; color: #856404;"><strong>Track Your Feedback:</strong></p>
+                                <p style="margin: 5px 0; color: #856404;">Save this reference number for future inquiries: <strong>#{{responseId}}</strong></p>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #999999; font-size: 12px; margin: 5px 0;">
+                                © {{currentYear}} BoloIndia. All rights reserved.
+                            </p>
+                            <p style="color: #999999; font-size: 12px; margin: 5px 0;">
+                                Empowering Citizens, Improving Services
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form Deleted - BoloIndia</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #ffc107; padding: 40px; text-align: center;">
+                            <h1 style="color: #333333; margin: 0; font-size: 28px;">⚠️ Form Deletion Notice</h1>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                Hello {{orgAdminName}},
+                            </p>
+                            
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                This is to confirm that the feedback form <strong>{{formName}}</strong> has been deleted from your organization.
+                            </p>
+                            
+                            <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0;">
+                                <p style="margin: 5px 0; color: #856404;"><strong>Form Name:</strong> {{formName}}</p>
+                                <p style="margin: 5px 0; color: #856404;"><strong>Form ID:</strong> {{formId}}</p>
+                                <p style="margin: 5px 0; color: #856404;"><strong>Deleted On:</strong> {{formatDateTime deletedAt}}</p>
+                                <p style="margin: 5px 0; color: #856404;"><strong>Deleted By:</strong> {{deletedBy}}</p>
+                            </div>
+                            
+                            <h3 style="color: #333333;">Impact of Deletion:</h3>
+                            <ul style="color: #666666; line-height: 1.8;">
+                                <li>All linked QR codes are now inactive</li>
+                                <li>Citizens can no longer submit feedback via this form</li>
+                                <li>Existing responses remain accessible in archives</li>
+                                <li>Form templates and configurations are removed</li>
+                            </ul>
+                            
+                            {{#if activeQrCount}}
+                            <div style="background-color: #f8d7da; border-left: 4px solid #dc3545; padding: 15px; margin: 20px 0;">
+                                <p style="margin: 0; color: #721c24;"><strong>⚠️ Warning:</strong> This form had {{activeQrCount}} active QR code(s). Please notify distributors to remove physical QR codes.</p>
+                            </div>
+                            {{/if}}
+                            
+                            <div style="text-align: center; margin: 30px 0;">
+                                <a href="{{platformUrl}}/org/forms" style="background-color: #667eea; color: #ffffff; padding: 14px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">View All Forms</a>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #999999; font-size: 12px; margin: 5px 0;">
+                                © {{currentYear}} BoloIndia. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

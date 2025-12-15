@@ -1,0 +1,123 @@
+version: '3.8'
+
+services:
+  # Notification Service
+  notification-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: boloindia-notification-service
+    ports:
+      - "8092:8092"
+    environment:
+      - NODE_ENV=development
+      - PORT=8092
+      
+      # MongoDB
+      - MONGODB_URI=mongodb://mongodb:27017/boloindia_notifications
+      
+      # Kafka
+      - KAFKA_BROKERS=kafka:9092
+      - KAFKA_CLIENT_ID=notification-service
+      - KAFKA_GROUP_ID=notification-consumer-group
+      
+      # Email (Gmail SMTP)
+      - EMAIL_PROVIDER=GMAIL_SMTP
+      - EMAIL_HOST=smtp.gmail.com
+      - EMAIL_PORT=587
+      - EMAIL_SECURE=false
+      - EMAIL_USER=your-email@gmail.com
+      - EMAIL_PASSWORD=your-app-password
+      - EMAIL_FROM=noreply@boloindia.in
+      - EMAIL_FROM_NAME=BoloIndia
+      
+      # Platform URLs
+      - PLATFORM_URL=http://localhost:3000
+      - SUPPORT_EMAIL=support@boloindia.in
+      
+      # JWT
+      - JWT_SECRET=your-jwt-secret-key
+      - JWT_ALGORITHM=HS256
+      
+      # Webhook
+      - WEBHOOK_API_KEY=your-webhook-api-key
+      
+      # Retry Configuration
+      - MAX_RETRY_ATTEMPTS=3
+      - RETRY_DELAY_MS=5000
+      - RETRY_CRON_SCHEDULE=*/10 * * * *
+    volumes:
+      - ./logs:/app/logs
+      - ./src/templates:/app/src/templates
+    depends_on:
+      - mongodb
+      - kafka
+    networks:
+      - boloindia-network
+    restart: unless-stopped
+
+  # MongoDB
+  mongodb:
+    image: mongo:7.0
+    container_name: boloindia-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
+    environment:
+      - MONGO_INITDB_DATABASE=boloindia_notifications
+    networks:
+      - boloindia-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Zookeeper (Required for Kafka)
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: boloindia-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - boloindia-network
+    restart: unless-stopped
+
+  # Kafka
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: boloindia-kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    depends_on:
+      - zookeeper
+    networks:
+      - boloindia-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server", "localhost:9092"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  mongodb_data:
+    driver: local
+  mongodb_config:
+    driver: local
+
+networks:
+  boloindia-network:
+    driver: bridge

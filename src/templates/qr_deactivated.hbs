@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Deactivated - BoloIndia</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #6c757d; padding: 40px; text-align: center;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">⏸️ QR Code Deactivated</h1>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                Dear {{distributorName}},
+                            </p>
+                            
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                This is to inform you that a QR code under your management has been deactivated.
+                            </p>
+                            
+                            <div style="background-color: #e2e3e5; border-left: 4px solid #6c757d; padding: 15px; margin: 20px 0;">
+                                <p style="margin: 5px 0; color: #383d41;"><strong>QR Code ID:</strong> {{qrCodeId}}</p>
+                                <p style="margin: 5px 0; color: #383d41;"><strong>Location:</strong> {{deployedLocation}}</p>
+                                <p style="margin: 5px 0; color: #383d41;"><strong>Deactivated On:</strong> {{formatDateTime deactivatedAt}}</p>
+                                <p style="margin: 5px 0; color: #383d41;"><strong>Reason:</strong> {{deactivationReason}}</p>
+                            </div>
+                            
+                            <h3 style="color: #333333;">What This Means:</h3>
+                            <ul style="color: #666666; line-height: 1.8;">
+                                <li>The QR code is no longer active</li>
+                                <li>Citizens cannot submit feedback through this QR</li>
+                                <li>You may be asked to remove the physical QR code</li>
+                                <li>No action required unless instructed</li>
+                            </ul>
+                            
+                            <div style="text-align: center; margin: 30px 0;">
+                                <a href="{{platformUrl}}/distributor/qr-codes/{{qrCodeId}}" style="background-color: #667eea; color: #ffffff; padding: 14px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">View Details</a>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #999999; font-size: 12px; margin: 5px 0;">
+                                © {{currentYear}} BoloIndia. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

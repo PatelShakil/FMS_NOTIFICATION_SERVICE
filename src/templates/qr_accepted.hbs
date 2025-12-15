@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Assignment Accepted - BoloIndia</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #28a745; padding: 40px; text-align: center;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">✅ Assignment Accepted</h1>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                Hello {{orgAdminName}},
+                            </p>
+                            
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                Good news! Distributor <strong>{{distributorName}}</strong> has accepted your QR code assignment.
+                            </p>
+                            
+                            <div style="background-color: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 20px 0;">
+                                <h3 style="margin-top: 0; color: #155724;">Assignment Details:</h3>
+                                <p style="margin: 5px 0; color: #155724;"><strong>QR Code ID:</strong> {{qrCodeId}}</p>
+                                <p style="margin: 5px 0; color: #155724;"><strong>Distributor:</strong> {{distributorName}}</p>
+                                <p style="margin: 5px 0; color: #155724;"><strong>Accepted On:</strong> {{formatDateTime acceptedAt}}</p>
+                                <p style="margin: 5px 0; color: #155724;"><strong>Expected Deployment:</strong> {{formatDate deploymentDeadline}}</p>
+                            </div>
+                            
+                            <h3 style="color: #333333;">What's Next?</h3>
+                            <ul style="color: #666666; line-height: 1.8;">
+                                <li>Distributor will deploy the QR codes at the specified location</li>
+                                <li>They will submit deployment proof with photos and GPS coordinates</li>
+                                <li>You'll be notified once deployment is submitted for approval</li>
+                                <li>Review and approve the deployment to activate the QR codes</li>
+                            </ul>
+                            
+                            <div style="text-align: center; margin: 30px 0;">
+                                <a href="{{platformUrl}}/org/qr-codes/{{qrCodeId}}" style="background-color: #667eea; color: #ffffff; padding: 14px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Track Assignment</a>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #999999; font-size: 12px; margin: 5px 0;">
+                                © {{currentYear}} BoloIndia. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

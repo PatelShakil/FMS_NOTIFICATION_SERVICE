@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Requires Changes - BoloIndia</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #ffc107; padding: 40px; text-align: center;">
+                            <h1 style="color: #333333; margin: 0; font-size: 28px;">⚠️ Deployment Needs Revision</h1>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                Dear {{distributorName}},
+                            </p>
+                            
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                Your QR code deployment submission has been reviewed and requires some changes before approval.
+                            </p>
+                            
+                            <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0;">
+                                <p style="margin: 5px 0; color: #856404;"><strong>QR Code ID:</strong> {{qrCodeId}}</p>
+                                <p style="margin: 5px 0; color: #856404;"><strong>Reviewed On:</strong> {{formatDateTime rejectedAt}}</p>
+                                <p style="margin: 15px 0 5px 0; color: #856404;"><strong>Issues Found:</strong></p>
+                                <p style="margin: 5px 0; color: #856404;">{{rejectionReason}}</p>
+                            </div>
+                            
+                            <h3 style="color: #333333;">What You Need To Do:</h3>
+                            <ul style="color: #666666; line-height: 1.8;">
+                                <li>Address the issues mentioned above</li>
+                                <li>Re-deploy the QR codes correctly</li>
+                                <li>Take new photos showing proper placement</li>
+                                <li>Resubmit deployment proof with corrections</li>
+                            </ul>
+                            
+                            <div style="background-color: #f8d7da; border-left: 4px solid #dc3545; padding: 15px; margin: 20px 0;">
+                                <p style="margin: 0; color: #721c24;"><strong>Important:</strong> Please resubmit within 48 hours to avoid assignment cancellation.</p>
+                            </div>
+                            
+                            <div style="text-align: center; margin: 30px 0;">
+                                <a href="{{platformUrl}}/distributor/assignments/{{qrCodeId}}/resubmit" style="background-color: #ffc107; color: #333333; padding: 14px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Resubmit Deployment</a>
+                            </div>
+                            
+                            <p style="color: #666666; line-height: 1.6; font-size: 14px; margin-top: 30px;">
+                                Need help? Contact us at <a href="mailto:{{supportEmail}}" style="color: #667eea;">{{supportEmail}}</a>
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #999999; font-size: 12px; margin: 5px 0;">
+                                © {{currentYear}} BoloIndia. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

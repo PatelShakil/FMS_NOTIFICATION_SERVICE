@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Distributor Registration - BoloIndia Admin</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #17a2b8; padding: 40px; text-align: center;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">📋 New Distributor Registration</h1>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                Hello Admin,
+                            </p>
+                            
+                            <p style="color: #666666; line-height: 1.6; font-size: 16px;">
+                                A new distributor has registered and is awaiting approval.
+                            </p>
+                            
+                            <div style="background-color: #e7f3ff; border-left: 4px solid #17a2b8; padding: 15px; margin: 20px 0;">
+                                <h3 style="margin-top: 0; color: #333;">Distributor Details:</h3>
+                                <p style="margin: 5px 0; color: #333;"><strong>Name:</strong> {{distributorName}}</p>
+                                <p style="margin: 5px 0; color: #333;"><strong>Email:</strong> {{distributorEmail}}</p>
+                                <p style="margin: 5px 0; color: #333;"><strong>Phone:</strong> {{distributorPhone}}</p>
+                                <p style="margin: 5px 0; color: #333;"><strong>Company:</strong> {{companyName}}</p>
+                                <p style="margin: 5px 0; color: #333;"><strong>Registration Date:</strong> {{formatDateTime registeredAt}}</p>
+                            </div>
+                            
+                            <div style="text-align: center; margin: 30px 0;">
+                                <a href="{{platformUrl}}/admin/distributors/{{distributorId}}" style="background-color: #28a745; color: #ffffff; padding: 14px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold; margin: 5px;">✓ Approve</a>
+                                <a href="{{platformUrl}}/admin/distributors/{{distributorId}}/reject" style="background-color: #dc3545; color: #ffffff; padding: 14px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold; margin: 5px;">✗ Reject</a>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #999999; font-size: 12px; margin: 5px 0;">
+                                © {{currentYear}} BoloIndia Admin Panel
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
